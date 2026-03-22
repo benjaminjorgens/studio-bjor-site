@@ -90,9 +90,11 @@
                   linear-gradient(to top, rgba(10,8,6,.82) 0%, rgba(10,8,6,.25) 38%, transparent 68%);
       z-index: 1;
     }
-    .hero-img {
+    .hero-video {
       position: absolute; inset: 0;
-      background: url('images/arch-lamp-smoke.jpg') center center / cover no-repeat;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      pointer-events: none;
     }
     .hero-content {
       position: relative; z-index: 2;
@@ -469,7 +471,7 @@
 </div>
 
 <section id="hero">
-  <div class="hero-img"></div>
+  <video class="hero-video" id="heroVideo" src="images/hero-video.mp4" muted playsinline preload="auto"></video>
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-text">
@@ -647,7 +649,6 @@
         <h2>Get a rough sense<br>of what your project<br>will cost</h2>
         <div class="divider"></div>
         <p>Every project is unique and final pricing requires a site visit and full scope conversation. This calculator gives you a realistic ballpark based on what I typically see for projects like yours.</p>
-        <div class="est-note"><strong>I take on medium-to-large scope projects.</strong> For smaller jobs, I'm happy to point you toward the right resource. For anything complex, interesting, or worth doing right — let's talk.</div>
       </div>
       <div class="rv-r">
         <form class="est-form" onsubmit="return false">
@@ -787,7 +788,11 @@
 </footer>
 
 <script>
-window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>60);
+  const v=document.getElementById('heroVideo');
+  if(v&&v.duration){const h=document.getElementById('hero').offsetHeight;v.currentTime=Math.min(scrollY/h,1)*v.duration;}
+});
 function toggleNav(){document.getElementById('mobMenu').classList.toggle('open');}
 const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');ro.unobserve(x.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>ro.observe(el));
