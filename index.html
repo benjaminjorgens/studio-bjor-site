@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Bjør — Lighting Design, Custom Furniture & Art Installation · Miami</title>
+  <meta name="description" content="Studio Bjør is a Miami-based design and build studio specializing in bespoke lighting, custom furniture, and high-end art installation. 626 five-star reviews. 12 years." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:     #070605;
+      --char:      #0e0c0a;
+      --dark:      #161310;
+      --mid:       #242018;
+      --border:    #2c2820;
+      --border-lt: #3a3228;
+      --amber:     #c8893a;
+      --amber-lt:  #dfa05a;
+      --amber-dim: #7a5020;
+      --cream:     #f0ece2;
+      --cream-dim: #9e9484;
+      --white:     #faf8f2;
+      --serif:     'Cormorant Garamond', Georgia, serif;
+      --sans:      'Inter', system-ui, sans-serif;
+      --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--cream); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    ::selection { background: var(--amber-dim); color: var(--cream); }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: var(--sans); }
+
+    /* ─── TYPE ───────────────────────────────────────────────────────── */
+    h1,h2,h3,h4 { font-family: var(--serif); font-weight: 300; line-height: 1.1; letter-spacing: 0.01em; }
+    .eyebrow { font-family: var(--sans); font-size: 0.62rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--amber); }
+    .divider { width: 40px; height: 1px; background: var(--amber); margin: 1.4rem 0; }
+    .divider--c { margin: 1.4rem auto; }
+
+    /* ─── LAYOUT ─────────────────────────────────────────────────────── */
+    .wrap  { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .wrap--n { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ─── REVEAL ─────────────────────────────────────────────────────── */
+    .rv   { opacity: 0; transform: translateY(28px); transition: opacity .85s var(--ease), transform .85s var(--ease); }
+    .rv-l { opacity: 0; transform: translateX(-36px); transition: opacity .85s var(--ease), transform .85s var(--ease); }
+    .rv-r { opacity: 0; transform: translateX(36px);  transition: opacity .85s var(--ease), transform .85s var(--ease); }
+    .rv.on, .rv-l.on, .rv-r.on { opacity: 1; transform: none; }
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+    /* ─── NAV ────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.6rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: padding .35s ease, background .35s ease, border-color .35s ease;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled { background: rgba(7,6,5,.95); backdrop-filter: blur(14px); padding: 1rem 2.5rem; border-bottom-color: var(--border); }
+    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; letter-spacing: .14em; color: var(--cream); }
+    .nav-logo span { color: var(--amber); }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; }
+    .nav-links a { color: var(--cream-dim); transition: color .2s; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-cta { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; border: 1px solid var(--amber); color: var(--amber); padding: .5rem 1.3rem; transition: background .2s, color .2s; }
+    .nav-cta:hover { background: var(--amber); color: var(--black); }
+    .nav-tog { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-tog span { display: block; width: 22px; height: 1px; background: var(--cream); }
+
+    /* ─── MOBILE MENU ────────────────────────────────────────────────── */
+    .mob-menu { display: none; position: fixed; inset: 0; z-index: 90; background: rgba(7,6,5,.98); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--cream); transition: color .2s; }
+    .mob-menu a:hover { color: var(--amber); }
+
+    /* ─── HERO ───────────────────────────────────────────────────────── */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(17,14,10,.85) 0%, rgba(7,6,5,0) 60%),
+                  linear-gradient(to top, rgba(7,6,5,1) 0%, rgba(7,6,5,.35) 40%, transparent 70%);
+      z-index: 1;
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      background: url('images/arch-lamp-smoke.jpg') center center / cover no-repeat;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      width: 100%;
+    }
+    .hero-text { padding: 0 2.5rem 7rem; max-width: 1200px; margin: 0 auto; }
+    .hero-tag {
+      font-size: .6rem; letter-spacing: .32em; text-transform: uppercase; color: var(--amber);
+      margin-bottom: 1.8rem;
+      opacity: 0; animation: fadeUp 1s var(--ease) .3s forwards;
+    }
+    .hero-h1 {
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(3.8rem, 9vw, 8.5rem);
+      line-height: .95; letter-spacing: -.01em; color: var(--white);
+      margin-bottom: 2.2rem;
+      opacity: 0; animation: fadeUp 1.1s var(--ease) .5s forwards;
+    }
+    .hero-h1 em { font-style: italic; color: var(--amber-lt); }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--cream-dim); max-width: 480px; line-height: 1.85; margin-bottom: 3rem;
+      opacity: 0; animation: fadeUp 1s var(--ease) .7s forwards;
+    }
+    .hero-btns {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 1s var(--ease) .9s forwards;
+    }
+    .btn-a { display: inline-flex; align-items: center; gap: .5rem; background: var(--amber); color: var(--black); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 1rem 2.2rem; border: none; transition: background .2s, transform .2s; }
+    .btn-a:hover { background: var(--amber-lt); transform: translateY(-1px); }
+    .btn-b { display: inline-flex; align-items: center; gap: .5rem; border: 1px solid rgba(240,236,226,.22); color: var(--cream); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; padding: 1rem 2.2rem; transition: border-color .2s; }
+    .btn-b:hover { border-color: var(--cream); }
+
+    .hero-stats {
+      display: flex; border-top: 1px solid var(--border);
+      background: rgba(7,6,5,.8); backdrop-filter: blur(10px);
+      opacity: 0; animation: fadeIn 1s ease 1.2s forwards;
+    }
+    .hs { flex: 1; padding: 1.4rem 2rem; text-align: center; border-right: 1px solid var(--border); }
+    .hs:last-child { border-right: none; }
+    .hs-n { font-family: var(--serif); font-size: 2.1rem; font-weight: 300; color: var(--amber-lt); display: block; line-height: 1; }
+    .hs-l { font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: var(--cream-dim); margin-top: .3rem; }
+
+    /* ─── INTRO ──────────────────────────────────────────────────────── */
+    #intro { background: var(--char); padding: 9rem 0; position: relative; overflow: hidden; }
+    #intro::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--amber-dim), transparent); }
+
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
+    .intro-text h2 { font-size: clamp(2.5rem, 5vw, 4.2rem); color: var(--white); margin-bottom: 1.5rem; }
+    .intro-text p { color: var(--cream-dim); font-size: .92rem; line-height: 1.95; margin-bottom: 1.2rem; }
+    .intro-text p strong { color: var(--cream); font-weight: 400; }
+
+    .intro-pull {
+      font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 300; line-height: 1.35; color: var(--cream);
+      position: relative; padding-left: 2.2rem;
+    }
+    .intro-pull::before { content: ''; position: absolute; left: 0; top: .3em; width: 3px; height: calc(100% - .6em); background: var(--amber); }
+
+    .intro-vals { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.8rem; }
+    .iv { border: 1px solid var(--border); padding: 1.2rem; background: rgba(255,255,255,.02); }
+    .iv-l { font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: var(--amber); margin-bottom: .4rem; }
+    .iv-t { font-size: .8rem; color: var(--cream-dim); line-height: 1.6; }
+
+    /* ─── PORTFOLIO STRIP ────────────────────────────────────────────── */
+    #portfolio-strip { background: var(--black); overflow: hidden; }
+    .portfolio-marquee {
+      display: flex; gap: 0;
+      animation: marquee 40s linear infinite;
+      width: max-content;
+    }
+    .portfolio-marquee:hover { animation-play-state: paused; }
+    .pm-img { width: 360px; height: 260px; flex-shrink: 0; overflow: hidden; position: relative; }
+    .pm-img img { transition: transform .6s var(--ease); width: 100%; height: 100%; object-fit: cover; }
+    .pm-img:hover img { transform: scale(1.04); }
+    .pm-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(7,6,5,.85) 0%, transparent 100%);
+      padding: .8rem 1rem;
+      font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--cream-dim);
+      opacity: 0; transition: opacity .3s;
+    }
+    .pm-img:hover .pm-label { opacity: 1; }
+
+    /* ─── SERVICES ───────────────────────────────────────────────────── */
+    #services { background: var(--char); padding: 8rem 0; }
+    .sec-hdr { margin-bottom: 4rem; }
+    .sec-hdr h2 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); color: var(--white); }
+
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .svc {
+      background: var(--char); padding: 2.5rem;
+      position: relative; overflow: hidden;
+      transition: background .3s;
+    }
+    .svc::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--amber); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
+    .svc:hover { background: var(--dark); }
+    .svc:hover::after { transform: scaleX(1); }
+    .svc-n { font-family: var(--serif); font-size: 3rem; color: var(--border); line-height: 1; margin-bottom: 1.5rem; transition: color .3s; }
+    .svc:hover .svc-n { color: var(--amber-dim); }
+    .svc h3 { font-family: var(--serif); font-size: 1.45rem; font-weight: 300; color: var(--white); margin-bottom: .8rem; }
+    .svc p { font-size: .82rem; color: var(--cream-dim); line-height: 1.78; }
+    .svc-tags { margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+    .svc-tag { font-size: .56rem; letter-spacing: .15em; text-transform: uppercase; border: 1px solid var(--border); color: var(--cream-dim); padding: .22rem .6rem; }
+
+    /* ─── DIFFERENTIATOR ─────────────────────────────────────────────── */
+    #diff { background: var(--amber); padding: 3rem 0; }
+    .diff-row { display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+    .diff-i { display: flex; align-items: center; gap: .9rem; font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--black); font-weight: 500; }
+    .diff-dot { width: 5px; height: 5px; background: rgba(0,0,0,.3); border-radius: 50%; flex-shrink: 0; }
+
+    /* ─── WORK / PORTFOLIO ───────────────────────────────────────────── */
+    #work { background: var(--black); padding: 8rem 0; }
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 3.5rem;
+    }
+    .wg-item { position: relative; overflow: hidden; background: var(--mid); height: 280px; }
+    .wg-item img { transition: transform .7s var(--ease); width: 100%; height: 100%; object-fit: cover; }
+    .wg-item:hover img { transform: scale(1.05); }
+    .wg-item.tall { grid-row: span 2; height: 568px; }
+    .wg-item.wide { grid-column: span 2; }
+    .wg-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(7,6,5,.8) 0%, transparent 50%);
+      opacity: 0; transition: opacity .4s;
+      display: flex; align-items: flex-end; padding: 1.5rem;
+    }
+    .wg-item:hover .wg-overlay { opacity: 1; }
+    .wg-label { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--cream); }
+
+    /* ─── ABOUT ──────────────────────────────────────────────────────── */
+    #about { background: var(--char); padding: 8rem 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.55fr; gap: 6rem; align-items: start; }
+    .about-portrait { position: relative; }
+    .about-frame { aspect-ratio: 3/4; position: relative; overflow: hidden; }
+    .about-frame img { object-position: top center; width: 100%; height: 100%; object-fit: cover; }
+    .about-corner { position: absolute; width: 48px; height: 48px; }
+    .about-corner.tl { top: -10px; left: -10px; border-top: 2px solid var(--amber); border-left: 2px solid var(--amber); }
+    .about-corner.br { bottom: -10px; right: -10px; border-bottom: 2px solid var(--amber); border-right: 2px solid var(--amber); }
+
+    .about-content h2 { font-size: clamp(2.2rem, 4vw, 3.5rem); color: var(--white); margin-bottom: 1rem; }
+    .about-content .lead { font-family: var(--serif); font-size: 1.2rem; font-weight: 300; font-style: italic; color: var(--cream); line-height: 1.7; margin-bottom: 1.5rem; }
+    .about-content p { font-size: .88rem; color: var(--cream-dim); line-height: 1.95; margin-bottom: 1.1rem; }
+    .about-content p strong { color: var(--cream); font-weight: 400; }
+
+    .about-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+    .af-l { font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: var(--amber); }
+    .af-v { font-family: var(--serif); font-size: 1.05rem; color: var(--cream); margin-top: .25rem; }
+
+    /* ─── PROCESS ────────────────────────────────────────────────────── */
+    #process { background: var(--dark); padding: 8rem 0; }
+    .process-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 4.5rem; position: relative; }
+    .process-row::before { content: ''; position: absolute; top: 27px; left: 12.5%; right: 12.5%; height: 1px; background: var(--border); z-index: 0; }
+    .ps { padding: 0 1.5rem; text-align: center; z-index: 1; }
+    .ps-num { width: 54px; height: 54px; border: 1px solid var(--amber); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-family: var(--serif); font-size: 1.15rem; color: var(--amber); background: var(--dark); transition: background .3s, color .3s; }
+    .ps:hover .ps-num { background: var(--amber); color: var(--black); }
+    .ps h4 { font-family: var(--serif); font-size: 1.15rem; color: var(--white); margin-bottom: .7rem; }
+    .ps p { font-size: .79rem; color: var(--cream-dim); line-height: 1.75; }
+
+    /* ─── TESTIMONIALS ───────────────────────────────────────────────── */
+    #testimonials { background: var(--black); padding: 8rem 0; }
+    .t-intro { text-align: center; margin-bottom: 4rem; }
+    .t-intro h2 { font-size: clamp(2rem, 4vw, 3.2rem); color: var(--white); }
+    .t-meta { display: flex; align-items: center; gap: .5rem; justify-content: center; margin-top: 1rem; font-size: .73rem; color: var(--cream-dim); }
+    .stars { color: var(--amber); }
+
+    .t-featured { border: 1px solid var(--amber-dim); background: rgba(200,137,58,.06); padding: 2.5rem 3rem; margin: 0 0 3rem; }
+    .t-featured-q { font-family: var(--serif); font-size: 1.3rem; font-style: italic; color: var(--cream); line-height: 1.6; }
+    .t-featured-attr { margin-top: 1.2rem; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); }
+
+    .t-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .t-card { border: 1px solid var(--border); padding: 2rem; transition: border-color .3s; background: rgba(255,255,255,.015); }
+    .t-card:hover { border-color: var(--amber-dim); }
+    .t-q { font-family: var(--serif); font-size: 2.8rem; color: var(--amber-dim); line-height: 1; margin-bottom: .3rem; }
+    .t-s { color: var(--amber); font-size: .72rem; margin-bottom: .8rem; }
+    .t-text { font-size: .85rem; color: var(--cream-dim); line-height: 1.82; font-style: italic; margin-bottom: 1.5rem; }
+    .t-author { font-size: .62rem; letter-spacing: .15em; text-transform: uppercase; color: var(--amber); }
+    .t-loc { font-size: .62rem; color: var(--cream-dim); margin-top: .2rem; }
+
+    .t-cta { text-align: center; margin-top: 2.5rem; }
+    .t-cta a { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--amber); border-bottom: 1px solid var(--amber-dim); padding-bottom: .12rem; transition: color .2s; }
+    .t-cta a:hover { color: var(--amber-lt); }
+
+    /* ─── MATERIALS ──────────────────────────────────────────────────── */
+    #materials { position: relative; height: 500px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .mat-bg { position: absolute; inset: 0; background: url('images/shou-sugi-burning.jpeg') center / cover no-repeat; filter: brightness(.45); }
+    .mat-content { position: relative; z-index: 2; text-align: center; max-width: 700px; padding: 2rem; }
+    .mat-content h2 { font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 1.5rem; }
+    .mat-content p { font-size: .92rem; color: var(--cream-dim); line-height: 1.85; }
+
+    /* ─── ESTIMATE ───────────────────────────────────────────────────── */
+    #estimate { background: var(--char); padding: 8rem 0; }
+    .est-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .est-intro h2 { font-size: clamp(2rem, 4vw, 3.2rem); color: var(--white); margin-bottom: 1rem; }
+    .est-intro p { font-size: .87rem; color: var(--cream-dim); line-height: 1.85; }
+    .est-note { margin-top: 2rem; padding: 1.2rem; border-left: 2px solid var(--amber); background: rgba(200,137,58,.05); font-size: .78rem; color: var(--cream-dim); line-height: 1.75; }
+    .est-note strong { color: var(--cream); font-weight: 400; }
+
+    .est-form { display: flex; flex-direction: column; gap: .9rem; }
+    .fr { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+    .fg { display: flex; flex-direction: column; gap: .35rem; }
+    .fg label { font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); }
+    .fg input, .fg select, .fg textarea {
+      background: rgba(255,255,255,.04); border: 1px solid var(--border); color: var(--cream);
+      font-family: var(--sans); font-size: .86rem; padding: .82rem 1rem; outline: none;
+      transition: border-color .2s; -webkit-appearance: none; border-radius: 0;
+    }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--amber-dim); }
+    .fg select option { background: var(--dark); }
+    .fg textarea { resize: vertical; min-height: 90px; }
+
+    .est-result { display: none; padding: 1.4rem; border: 1px solid var(--amber-dim); background: rgba(200,137,58,.07); margin-top: .3rem; }
+    .est-result.on { display: block; }
+    .est-range { font-family: var(--serif); font-size: 2rem; color: var(--amber-lt); display: block; }
+    .est-disc { font-size: .7rem; color: var(--cream-dim); margin-top: .4rem; line-height: 1.6; }
+    .btn-submit { background: var(--amber); color: var(--black); border: none; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 1.05rem; width: 100%; transition: background .2s; }
+    .btn-submit:hover { background: var(--amber-lt); }
+
+    /* ─── BOOKING ────────────────────────────────────────────────────── */
+    #booking { background: var(--black); padding: 8rem 0; }
+    .book-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 5rem; align-items: start; }
+    .book-intro h2 { font-size: clamp(2rem, 4vw, 3.2rem); color: var(--white); margin-bottom: 1rem; }
+    .book-intro p { font-size: .87rem; color: var(--cream-dim); line-height: 1.85; }
+
+    .book-types { margin-top: 2rem; display: flex; flex-direction: column; gap: .7rem; }
+    .bt { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem; border: 1px solid var(--border); cursor: pointer; transition: border-color .2s, background .2s; }
+    .bt:hover, .bt.active { border-color: var(--amber); background: rgba(200,137,58,.04); }
+    .bt-radio { width: 15px; height: 15px; border: 1px solid var(--amber-dim); border-radius: 50%; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; }
+    .bt.active .bt-radio::after { content: ''; width: 7px; height: 7px; background: var(--amber); border-radius: 50%; display: block; }
+    .bt-title { font-size: .79rem; color: var(--cream); }
+    .bt-desc { font-size: .71rem; color: var(--cream-dim); margin-top: .2rem; }
+    .bt-price { color: var(--amber); }
+
+    .cal-wrap { border: 1px solid var(--border); background: var(--char); }
+    .cal-hdr { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .cal-month { font-family: var(--serif); font-size: 1.1rem; color: var(--white); }
+    .cal-nav { background: none; border: none; color: var(--amber); font-size: 1.2rem; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; transition: color .2s; }
+    .cal-nav:hover { color: var(--amber-lt); }
+    .cal-body { padding: 1rem 1.5rem; }
+    .cal-dnames { display: grid; grid-template-columns: repeat(7,1fr); margin-bottom: .4rem; }
+    .cdn { text-align: center; font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; color: var(--cream-dim); padding: .3rem 0; }
+    .cal-days { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; }
+    .cd { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: .78rem; color: var(--cream-dim); cursor: pointer; transition: background .15s, color .15s; position: relative; }
+    .cd:hover:not(.empty):not(.past) { background: rgba(200,137,58,.14); color: var(--cream); }
+    .cd.avail { color: var(--cream); }
+    .cd.avail::after { content: ''; position: absolute; bottom: 3px; width: 3px; height: 3px; background: var(--amber); border-radius: 50%; }
+    .cd.sel { background: var(--amber) !important; color: var(--black) !important; }
+    .cd.sel::after { display: none; }
+    .cd.past { opacity: .2; cursor: default; }
+    .cd.empty { cursor: default; }
+    .cd.today { border: 1px solid var(--amber-dim); }
+
+    .time-wrap { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: none; }
+    .time-wrap.on { display: block; }
+    .tw-label { font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); margin-bottom: .7rem; }
+    .slots { display: grid; grid-template-columns: repeat(3,1fr); gap: .45rem; }
+    .slot { background: none; border: 1px solid var(--border); color: var(--cream-dim); font-size: .76rem; padding: .6rem; text-align: center; transition: border-color .2s, background .2s, color .2s; }
+    .slot:hover { border-color: var(--amber); color: var(--cream); }
+    .slot.sel { background: var(--amber); border-color: var(--amber); color: var(--black); }
+
+    .book-form { padding: 1.4rem 1.5rem; border-top: 1px solid var(--border); display: none; }
+    .book-form.on { display: block; }
+    .book-form h4 { font-family: var(--serif); font-size: 1.1rem; color: var(--white); margin-bottom: 1rem; }
+    .book-fields { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+    .book-fields .full { grid-column: 1 / -1; }
+    .book-sub { background: var(--amber); color: var(--black); border: none; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 1rem; width: 100%; margin-top: .9rem; transition: background .2s; }
+    .book-sub:hover { background: var(--amber-lt); }
+    .book-confirm { display: none; padding: 2rem 1.5rem; text-align: center; border-top: 1px solid var(--border); }
+    .book-confirm.on { display: block; }
+    .book-confirm h4 { font-family: var(--serif); font-size: 1.3rem; color: var(--amber-lt); margin-bottom: .7rem; }
+    .book-confirm p { font-size: .82rem; color: var(--cream-dim); line-height: 1.7; }
+
+    /* ─── CONTACT ────────────────────────────────────────────────────── */
+    #contact { background: var(--char); padding: 7rem 0; }
+    .contact-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-left h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--white); margin-bottom: .8rem; }
+    .contact-left p { font-size: .88rem; color: var(--cream-dim); line-height: 1.85; margin-bottom: 2rem; }
+    .ci-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .ci { display: flex; gap: 1.1rem; align-items: flex-start; }
+    .ci-icon { width: 38px; height: 38px; flex-shrink: 0; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--amber); }
+    .ci-icon svg { width: 15px; height: 15px; }
+    .ci-l { font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); }
+    .ci-v { font-size: .88rem; color: var(--cream); margin-top: .15rem; }
+    .ci-v a { transition: color .2s; }
+    .ci-v a:hover { color: var(--amber-lt); }
+    .contact-form { display: flex; flex-direction: column; gap: .8rem; }
+    .c-sub { background: var(--amber); color: var(--black); border: none; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 1rem; transition: background .2s; }
+    .c-sub:hover { background: var(--amber-lt); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────────── */
+    footer { background: var(--black); border-top: 1px solid var(--border); padding: 2.2rem 0; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .f-logo { font-family: var(--serif); font-size: 1.1rem; letter-spacing: .12em; color: var(--cream-dim); }
+    .f-logo span { color: var(--amber); }
+    .f-links { display: flex; gap: 1.8rem; list-style: none; font-size: .65rem; letter-spacing: .12em; }
+    .f-links a { color: var(--cream-dim); transition: color .2s; }
+    .f-links a:hover { color: var(--amber); }
+    .f-copy { font-size: .65rem; color: var(--cream-dim); }
+
+    /* ─── ANIMS ──────────────────────────────────────────────────────── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+    @media(max-width:1024px) {
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .process-row { grid-template-columns: 1fr 1fr; }
+      .process-row::before { display: none; }
+      .ps { margin-bottom: 2rem; }
+    }
+    @media(max-width:768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav.scrolled { padding: .9rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-tog { display: flex; }
+      .intro-grid, .about-grid, .est-grid, .book-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .svc-grid, .t-grid { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr 1fr; }
+      .wg-item.wide { grid-column: span 2; }
+      .wg-item.tall { height: 340px; grid-row: span 1; }
+      .hero-stats { flex-wrap: wrap; }
+      .hs { flex: 1 1 50%; border-right: none; border-bottom: 1px solid var(--border); }
+      .fr { grid-template-columns: 1fr; }
+      .book-fields { grid-template-columns: 1fr; }
+      .intro-vals { grid-template-columns: 1fr; }
+      .about-facts { grid-template-columns: 1fr; }
+      .process-row { grid-template-columns: 1fr; }
+      .footer-row { flex-direction: column; text-align: center; }
+      .t-featured { padding: 1.8rem; }
+      #materials { height: 380px; }
+    }
+    @media(max-width:480px) {
+      .hero-h1 { font-size: 3rem; }
+      .work-grid { grid-template-columns: 1fr; }
+      .wg-item.wide { grid-column: span 1; }
+      .slots { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Studio Bj<span>ø</span>r</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#estimate">Estimate</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Book Consultation</a>
+  <div class="nav-tog" id="navTog" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="#services"     onclick="toggleNav()">Services</a>
+  <a href="#work"         onclick="toggleNav()">Work</a>
+  <a href="#about"        onclick="toggleNav()">About</a>
+  <a href="#testimonials" onclick="toggleNav()">Reviews</a>
+  <a href="#estimate"     onclick="toggleNav()">Estimate</a>
+  <a href="#booking"      onclick="toggleNav()">Book</a>
+</div>
+
+<section id="hero">
+  <div class="hero-img"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-tag">Studio Bjør &nbsp;·&nbsp; Miami &nbsp;·&nbsp; Est. 2012</p>
+      <h1 class="hero-h1">Spaces that<br>hold <em>light.</em></h1>
+      <p class="hero-sub">Most studios send a team. We send the person who designed it. Lighting, custom furniture, and high-end installation — built from the ground up.</p>
+      <div class="hero-btns">
+        <a href="#booking" class="btn-a">Book a Consultation</a>
+        <a href="#work" class="btn-b">View Work</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><span class="hs-n">12</span><div class="hs-l">Years in Practice</div></div>
+      <div class="hs"><span class="hs-n">626</span><div class="hs-l">Verified Reviews</div></div>
+      <div class="hs"><span class="hs-n">★ 5.0</span><div class="hs-l">Average Rating</div></div>
+      <div class="hs"><span class="hs-n">1,045</span><div class="hs-l">Projects Completed</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="intro">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div class="rv">
+        <p class="eyebrow">The Studio</p>
+        <h2>Quality is not a feature.<br>It's the foundation.</h2>
+        <div class="divider"></div>
+        <p>Studio Bjør was built on a single refusal: <strong>the refusal to do anything disposable.</strong> Every project — from a single custom pendant to a full commercial lighting scheme — is approached with the same obsessive attention to materials, craft, and longevity.</p>
+        <p>For over a decade, I've watched people spend hundreds of dollars assembling furniture that won't survive one move. I've seen interiors lit with fixtures that flatten the rooms they're supposed to bring to life. That's not design — it's decoration. And it's not what I do.</p>
+        <p>I work in solid wood, hand-finished metal, and real glass. <strong>When you work with Studio Bjør, you're bringing in a single point of contact</strong> with twelve years of expertise across every dimension of the built environment.</p>
+        <div class="intro-vals">
+          <div class="iv"><div class="iv-l">Materials</div><div class="iv-t">Solid hardwood, charred Yakisugi, natural stone, hand-finished metal. Nothing disposable, ever.</div></div>
+          <div class="iv"><div class="iv-l">Approach</div><div class="iv-t">Consultant first. The best work begins long before the first tool is lifted.</div></div>
+          <div class="iv"><div class="iv-l">Craft</div><div class="iv-t">Done well the first time. Every joint, weld, and wire run as though it will be seen.</div></div>
+          <div class="iv"><div class="iv-l">Scope</div><div class="iv-t">From concept to installation, I am the only call you need to make.</div></div>
+        </div>
+      </div>
+      <div class="rv d2">
+        <p class="intro-pull">"The person drawing the plans should be the person on the ladder. After 12 years across Miami — from Brickell penthouses to Coconut Grove bungalows — the difference between a good room and an unforgettable one always comes down to lighting, material, and attention to what everyone else overlooks."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="portfolio-strip">
+  <div class="portfolio-marquee">
+    <div class="pm-img"><img src="images/arch-lamp-hero.jpg" alt="Custom lighting" /><div class="pm-label">Custom Lighting</div></div>
+    <div class="pm-img"><img src="images/shelf-plants.jpg" alt="Lit shelving" /><div class="pm-label">Custom Shelving</div></div>
+    <div class="pm-img"><img src="images/commercial-dining.jpg" alt="Commercial dining" /><div class="pm-label">Commercial Lighting</div></div>
+    <div class="pm-img"><img src="images/woodgrain-glow.jpg" alt="Yakisugi detail" /><div class="pm-label">Yakisugi Detail</div></div>
+    <div class="pm-img"><img src="images/led-installation.jpg" alt="LED installation" /><div class="pm-label">LED Installation</div></div>
+    <div class="pm-img"><img src="images/fabrication-1.jpg" alt="Fabrication" /><div class="pm-label">Lighting Fabrication</div></div>
+    <div class="pm-img"><img src="images/arch-lamp-hero.jpg" alt="Custom lighting" /><div class="pm-label">Custom Lighting</div></div>
+    <div class="pm-img"><img src="images/shelf-plants.jpg" alt="Lit shelving" /><div class="pm-label">Custom Shelving</div></div>
+    <div class="pm-img"><img src="images/commercial-dining.jpg" alt="Commercial dining" /><div class="pm-label">Commercial Lighting</div></div>
+    <div class="pm-img"><img src="images/woodgrain-glow.jpg" alt="Yakisugi detail" /><div class="pm-label">Yakisugi Detail</div></div>
+    <div class="pm-img"><img src="images/led-installation.jpg" alt="LED installation" /><div class="pm-label">LED Installation</div></div>
+    <div class="pm-img"><img src="images/fabrication-1.jpg" alt="Fabrication" /><div class="pm-label">Lighting Fabrication</div></div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-hdr rv">
+      <p class="eyebrow">What I Do</p>
+      <h2>A complete vocabulary<br>of craft and design</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc rv d1"><div class="svc-n">01</div><h3>Lighting Design</h3><p>Ambient, accent, and task lighting conceived as a system. LED installations, smart home integration, fixture sourcing, and full electrical installation. I design the light before touching a single wire.</p><div class="svc-tags"><span class="svc-tag">Design</span><span class="svc-tag">Specification</span><span class="svc-tag">Residential &amp; Commercial</span></div></div>
+      <div class="svc rv d2"><div class="svc-n">02</div><h3>Lighting Installation &amp; Fabrication</h3><p>Custom fixture fabrication and precision installation. I build lights from raw materials when nothing off-the-shelf meets the standard. Every installation is clean, code-compliant, and built to last.</p><div class="svc-tags"><span class="svc-tag">Custom Build</span><span class="svc-tag">Electrical</span><span class="svc-tag">Repair &amp; Restore</span></div></div>
+      <div class="svc rv d3"><div class="svc-n">03</div><h3>Custom Furniture</h3><p>Bespoke pieces built from solid hardwoods. Yakisugi / Shou Sugi Ban finished pieces, live edge tables, shelving, cabinetry, and integrated furniture-lighting systems. From Burning Man installations to Brickell penthouses.</p><div class="svc-tags"><span class="svc-tag">Solid Wood</span><span class="svc-tag">Yakisugi</span><span class="svc-tag">In-House Build</span></div></div>
+      <div class="svc rv d1"><div class="svc-n">04</div><h3>Interior Design</h3><p>Full-room direction including spatial layout, material palette, art placement, and finish selection. I consult, specify, source, and install — no hand-off, no gaps in translation.</p><div class="svc-tags"><span class="svc-tag">Space Planning</span><span class="svc-tag">Materials</span><span class="svc-tag">Full-Service</span></div></div>
+      <div class="svc rv d2"><div class="svc-n">05</div><h3>Art Installation &amp; Consulting</h3><p>High-end art placement, hanging, and installation for private residences, galleries, and commercial spaces. Platinum Elite rated — over 250 five-star installs. Art consulting, collection management, and secure transport coordination.</p><div class="svc-tags"><span class="svc-tag">Platinum Elite</span><span class="svc-tag">250+ Installs</span><span class="svc-tag">Transport</span></div></div>
+      <div class="svc rv d3"><div class="svc-n">06</div><h3>Smart Home &amp; Full-Service Projects</h3><p>10+ complete smart home setups across Miami. Lighting automation, AV integration, and device ecosystems that work the way you imagined. Design through installation, coordinated start to finish.</p><div class="svc-tags"><span class="svc-tag">Smart Home</span><span class="svc-tag">AV Integration</span><span class="svc-tag">Full-Service</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div id="diff">
+  <div class="wrap">
+    <div class="diff-row">
+      <div class="diff-i"><div class="diff-dot"></div>12 Years of Practice</div>
+      <div class="diff-i"><div class="diff-dot"></div>#1 Rated — SF &amp; Miami</div>
+      <div class="diff-i"><div class="diff-dot"></div>626 Five-Star Reviews</div>
+      <div class="diff-i"><div class="diff-dot"></div>1,045 Completed Projects</div>
+      <div class="diff-i"><div class="diff-dot"></div>One Person. Full Vision.</div>
+    </div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-hdr rv">
+      <p class="eyebrow">Selected Work</p>
+      <h2>Built, lit, and finished</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="work-grid">
+      <div class="wg-item tall rv d1"><img src="images/arch-lamp-smoke.jpg" alt="Arch lamp" /><div class="wg-overlay"><span class="wg-label">Custom Arch Lamp — Yakisugi</span></div></div>
+      <div class="wg-item rv d2"><img src="images/arch-lamp-hero.jpg" alt="Arch lamp detail" /><div class="wg-overlay"><span class="wg-label">Lighting Fabrication</span></div></div>
+      <div class="wg-item rv d3"><img src="images/shelf-plants.jpg" alt="Lit shelving" /><div class="wg-overlay"><span class="wg-label">Custom Shelving — Integrated LED</span></div></div>
+      <div class="wg-item wide rv d2"><img src="images/commercial-dining.jpg" alt="Commercial dining" /><div class="wg-overlay"><span class="wg-label">Commercial Dining — Lighting Design</span></div></div>
+      <div class="wg-item rv d1"><img src="images/led-installation.jpg" alt="LED installation" /><div class="wg-overlay"><span class="wg-label">LED Installation</span></div></div>
+      <div class="wg-item rv d2"><img src="images/woodgrain-glow.jpg" alt="Woodgrain detail" /><div class="wg-overlay"><span class="wg-label">Yakisugi Detail</span></div></div>
+      <div class="wg-item rv d3"><img src="images/shelf-detail.jpg" alt="Shelf detail" /><div class="wg-overlay"><span class="wg-label">Shelving Detail</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="rv-l">
+        <div class="about-portrait">
+          <div class="about-corner tl"></div>
+          <div class="about-frame"><img src="images/portrait-hero.png" alt="Benjamin Jorgens — Studio Bjør" /></div>
+          <div class="about-corner br"></div>
+        </div>
+      </div>
+      <div class="rv-r">
+        <p class="eyebrow">Benjamin Jorgens</p>
+        <h2>The designer<br>behind the studio</h2>
+        <div class="divider"></div>
+        <p class="lead">"I grew up building things. I've never stopped. The only thing that's changed is what I build — and how well I build it."</p>
+        <p>My path here wasn't conventional. I grew up in Spokane, moved to San Francisco at 23 to work at Apple as a visual merchandiser — learning how the world's most design-obsessed company thought about space, light, and the difference between good and extraordinary.</p>
+        <p>I left corporate life to join a hardware startup, then went independent when I realized the only projects worth doing were the ones where I had <strong>complete ownership of the outcome.</strong> That was twelve years ago.</p>
+        <p>Since then I've built a practice that covers more ground than any single discipline usually allows: lighting design, furniture fabrication, electrical systems, art placement, interior consulting. Studio Bjør is small by design. <strong>Every project gets my full attention,</strong> from the first consultation to the final adjustment.</p>
+        <div class="about-facts">
+          <div><div class="af-l">Started</div><div class="af-v">Apple, San Francisco</div></div>
+          <div><div class="af-l">Independent Since</div><div class="af-v">2012</div></div>
+          <div><div class="af-l">Based In</div><div class="af-v">Miami, FL</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-hdr rv" style="text-align:center">
+      <p class="eyebrow">How It Works</p>
+      <h2>From first call<br>to finished space</h2>
+      <div class="divider divider--c"></div>
+    </div>
+    <div class="process-row">
+      <div class="ps rv d1"><div class="ps-num">01</div><h4>Discovery Call</h4><p>A 30–45 minute conversation about your space, goals, timeline, and budget. No pressure. I need to understand the full picture before I can tell you what's possible.</p></div>
+      <div class="ps rv d2"><div class="ps-num">02</div><h4>Site Assessment</h4><p>I visit the space, evaluate existing conditions, and identify opportunities and constraints. This is where most projects take shape — in person, in the room.</p></div>
+      <div class="ps rv d3"><div class="ps-num">03</div><h4>Proposal &amp; Agreement</h4><p>A detailed scope, timeline, and fixed-price proposal. A signed agreement and deposit secure your start date. Everything in writing before anything is built.</p></div>
+      <div class="ps rv d4"><div class="ps-num">04</div><h4>Design &amp; Build</h4><p>Execution with consistent communication. I handle every phase — sourcing, fabrication, installation, finishing — to a standard I'm proud to put my name on.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="t-intro rv">
+      <p class="eyebrow">Client Reviews</p>
+      <h2>What clients say</h2>
+      <div class="divider divider--c"></div>
+      <div class="t-meta"><span class="stars">★★★★★</span><span>626 verified five-star reviews &nbsp;·&nbsp; TaskRabbit Platinum Elite &nbsp;·&nbsp; Miami &amp; San Francisco</span></div>
+    </div>
+    <div class="t-featured rv">
+      <p class="t-featured-q">"Benjamin is the last person you'll ever need to call. He communicates thoroughly, shows up when he says he will, and the work speaks for itself. Our lighting installation completely transformed the space — I didn't know a room could feel this different."</p>
+      <div class="t-featured-attr">Verified Client &nbsp;·&nbsp; Electrical &amp; Lighting &nbsp;·&nbsp; Miami</div>
+    </div>
+    <div class="t-grid">
+      <div class="t-card rv d1"><div class="t-q">"</div><div class="t-s">★★★★★</div><p class="t-text">Benjamin transformed our entire living space. The lighting scheme makes the room feel completely different at every hour of the day. I've never had a contractor who understood the vision so immediately and executed it so precisely.</p><div class="t-author">Sarah M.</div><div class="t-loc">Miami, FL — Residential Lighting Design</div></div>
+      <div class="t-card rv d2"><div class="t-q">"</div><div class="t-s">★★★★★</div><p class="t-text">We hired Benjamin for our restaurant buildout and he was worth every penny. One person. One vision. Flawless execution. He saved us from at least three contractors.</p><div class="t-author">Carlos R.</div><div class="t-loc">Miami Beach, FL — Restaurant Buildout</div></div>
+      <div class="t-card rv d3"><div class="t-q">"</div><div class="t-s">★★★★★</div><p class="t-text">The custom walnut shelving Benjamin built for my office is the most beautiful piece of furniture I own. He sourced the wood, designed the integrated lighting, built it, installed it, and cleaned up. This is the standard I didn't know was available.</p><div class="t-author">James T.</div><div class="t-loc">San Francisco, CA — Custom Furniture &amp; Lighting</div></div>
+      <div class="t-card rv d1"><div class="t-q">"</div><div class="t-s">★★★★★</div><p class="t-text">Always amazing work.</p><div class="t-author">Michael B.</div><div class="t-loc">Verified — TaskRabbit</div></div>
+      <div class="t-card rv d2"><div class="t-q">"</div><div class="t-s">★★★★★</div><p class="t-text">Benjamin is very punctual and professional. He was easy to communicate with and did a great job. I'll certainly hire him again!</p><div class="t-author">Mosh H.</div><div class="t-loc">Verified — TaskRabbit</div></div>
+      <div class="t-card rv d3"><div class="t-q">"</div><div class="t-s">★★★★★</div><p class="t-text">Benjamin diagnosed an electrical issue three other electricians missed, fixed it cleanly, and redesigned the lighting around it. He thinks in systems, not tasks. Best investment I've made in this house.</p><div class="t-author">David H.</div><div class="t-loc">Coral Gables, FL — Electrical &amp; Lighting</div></div>
+    </div>
+    <div class="t-cta rv"><a href="https://www.taskrabbit.com/profile/bjor/category/405" target="_blank" rel="noopener">View all 626 verified reviews on TaskRabbit →</a></div>
+  </div>
+</section>
+
+<section id="materials">
+  <div class="mat-bg"></div>
+  <div class="mat-content rv">
+    <h2>Scandinavian restraint.<br>Japanese material philosophy.<br>Miami warmth.</h2>
+    <p>A design point of view twelve years in the making. Specific enough to be recognizable. Flexible enough to serve any space.</p>
+  </div>
+</section>
+
+<section id="estimate">
+  <div class="wrap">
+    <div class="est-grid">
+      <div class="rv-l">
+        <p class="eyebrow">Project Estimate</p>
+        <h2>Get a rough sense<br>of what your project<br>will cost</h2>
+        <div class="divider"></div>
+        <p>Every project is unique and final pricing requires a site visit and full scope conversation. This calculator gives you a realistic ballpark based on what I typically see for projects like yours.</p>
+        <div class="est-note"><strong>Studio Bjør takes on medium-to-large scope projects.</strong> For smaller jobs, I'm happy to point you toward the right resource. For anything complex, interesting, or worth doing right — let's talk.</div>
+      </div>
+      <div class="rv-r">
+        <form class="est-form" onsubmit="return false">
+          <div class="fr">
+            <div class="fg"><label>Your Name</label><input type="text" id="eName" placeholder="First Last" /></div>
+            <div class="fg"><label>Email</label><input type="email" id="eEmail" placeholder="you@email.com" /></div>
+          </div>
+          <div class="fg"><label>Project Type</label>
+            <select id="eType" onchange="calcEst()">
+              <option value="">Select a service...</option>
+              <option value="lr">Lighting Design — Residential</option>
+              <option value="lc">Lighting Design — Commercial</option>
+              <option value="fc">Custom Furniture</option>
+              <option value="ai">Art Installation</option>
+              <option value="id">Interior Design + Lighting</option>
+              <option value="sh">Smart Home</option>
+              <option value="fp">Full-Service Project</option>
+              <option value="dr">Diagnostics &amp; Restoration</option>
+            </select>
+          </div>
+          <div class="fg"><label>Project Scale</label>
+            <select id="eSize" onchange="calcEst()">
+              <option value="">Select scale...</option>
+              <option value="s">Small (single room or piece)</option>
+              <option value="m">Medium (multiple rooms / full apartment)</option>
+              <option value="l">Large (full home or commercial space)</option>
+              <option value="x">Complex / Multi-Phase</option>
+            </select>
+          </div>
+          <div class="fg"><label>Location</label>
+            <select id="eLoc" onchange="calcEst()">
+              <option value="local">Miami / South Florida</option>
+              <option value="travel">Outside South Florida (travel required)</option>
+            </select>
+          </div>
+          <div class="fg"><label>Brief Description</label><textarea id="eDesc" placeholder="Tell me what you're trying to accomplish. The more specific, the better the estimate."></textarea></div>
+          <div class="est-result" id="estResult">
+            <div class="eyebrow" style="margin-bottom:.5rem">Estimated Range</div>
+            <span class="est-range" id="estRange">—</span>
+            <p class="est-disc">Rough estimate only. Final pricing is determined after a site visit and full scope conversation. A deposit is required to secure your project start date.</p>
+          </div>
+          <button type="button" class="btn-submit" onclick="sendEst()">Send My Estimate Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="wrap">
+    <div class="book-grid">
+      <div class="rv-l">
+        <p class="eyebrow">Book a Consultation</p>
+        <h2>Let's talk about<br>your project</h2>
+        <div class="divider"></div>
+        <p>Choose a time that works for you. A consultation is a focused conversation — on-site or by phone — to understand your space, goals, and whether we're the right fit.</p>
+        <div class="book-types" id="bookTypes">
+          <div class="bt active" onclick="selBT(this)"><div class="bt-radio"></div><div><div class="bt-title">Discovery Call — Complimentary</div><div class="bt-desc">30–45 min. Discuss your project, ask questions, see if we're a fit.</div></div></div>
+          <div class="bt" onclick="selBT(this)"><div class="bt-radio"></div><div><div class="bt-title">Residential Site Consultation</div><div class="bt-desc">2 hrs on-site. Full walkthrough, recommendations, written summary. <span class="bt-price">$250</span> — credited toward project.</div></div></div>
+          <div class="bt" onclick="selBT(this)"><div class="bt-radio"></div><div><div class="bt-title">Commercial Site Consultation</div><div class="bt-desc">3 hrs on-site. Full analysis, lighting strategy, written scope. <span class="bt-price">$450</span> — credited toward project.</div></div></div>
+        </div>
+      </div>
+      <div class="rv-r">
+        <div class="cal-wrap">
+          <div class="cal-hdr">
+            <button class="cal-nav" onclick="chMonth(-1)">‹</button>
+            <span class="cal-month" id="calMonth"></span>
+            <button class="cal-nav" onclick="chMonth(1)">›</button>
+          </div>
+          <div class="cal-body">
+            <div class="cal-dnames"><div class="cdn">Su</div><div class="cdn">Mo</div><div class="cdn">Tu</div><div class="cdn">We</div><div class="cdn">Th</div><div class="cdn">Fr</div><div class="cdn">Sa</div></div>
+            <div class="cal-days" id="calDays"></div>
+          </div>
+          <div class="time-wrap" id="timeWrap"><div class="tw-label">Available Times</div><div class="slots" id="slotsEl"></div></div>
+          <div class="book-form" id="bookFormEl">
+            <h4>Your Details</h4>
+            <div class="book-fields">
+              <div class="fg"><label>First Name</label><input type="text" id="bFirst" placeholder="First" /></div>
+              <div class="fg"><label>Last Name</label><input type="text" id="bLast" placeholder="Last" /></div>
+              <div class="fg"><label>Email</label><input type="email" id="bEmail" placeholder="you@email.com" /></div>
+              <div class="fg"><label>Phone</label><input type="tel" id="bPhone" placeholder="(305) 000-0000" /></div>
+              <div class="fg full"><label>Project Description</label><textarea id="bDesc" placeholder="What are you working on?" style="min-height:65px"></textarea></div>
+            </div>
+            <button class="book-sub" onclick="confirmBook()">Confirm Booking</button>
+          </div>
+          <div class="book-confirm" id="bookConfirm">
+            <h4>You're on the calendar.</h4>
+            <p>Benjamin will review your details and follow up within 24 hours to confirm your appointment.</p>
+            <p style="margin-top:.8rem;color:var(--amber-dim);font-size:.73rem">hello@studiobjor.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="rv-l">
+        <p class="eyebrow">Get In Touch</p>
+        <h2>Ready to start<br>something?</h2>
+        <div class="divider"></div>
+        <p>Serious projects only. If you have a space that deserves real attention — I'd like to hear about it.</p>
+        <div class="ci-list">
+          <div class="ci"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div><div><div class="ci-l">Email</div><div class="ci-v"><a href="mailto:hello@studiobjor.com">hello@studiobjor.com</a></div></div></div>
+          <div class="ci"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><div class="ci-l">Based In</div><div class="ci-v">Miami, FL · serving clients nationwide</div></div></div>
+          <div class="ci"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><div class="ci-l">Response Time</div><div class="ci-v">Within 24 hours on business days</div></div></div>
+        </div>
+      </div>
+      <div class="rv-r">
+        <form class="contact-form" onsubmit="return sbContact(event)">
+          <div class="fr">
+            <div class="fg"><label>Name</label><input type="text" placeholder="Your name" required /></div>
+            <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+          </div>
+          <div class="fg"><label>Project Type</label><select><option>Lighting Design</option><option>Custom Furniture</option><option>Art Installation</option><option>Interior Design</option><option>Smart Home</option><option>Commercial Project</option><option>Other</option></select></div>
+          <div class="fg"><label>Message</label><textarea placeholder="Tell me about your space and what you're trying to accomplish." style="min-height:120px"></textarea></div>
+          <button type="submit" class="c-sub">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="f-logo">Studio Bj<span>ø</span>r</div>
+      <ul class="f-links">
+        <li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#about">About</a></li>
+        <li><a href="#testimonials">Reviews</a></li><li><a href="#booking">Book</a></li><li><a href="mailto:hello@studiobjor.com">Contact</a></li>
+      </ul>
+      <p class="f-copy">© 2026 Studio Bjør &nbsp;·&nbsp; Miami, FL</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+function toggleNav(){document.getElementById('mobMenu').classList.toggle('open');}
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');ro.unobserve(x.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>ro.observe(el));
+const ER={lr:{s:[800,1800],m:[2500,5500],l:[6000,14000],x:[14000,30000]},lc:{s:[1500,3500],m:[4000,9000],l:[9000,22000],x:[20000,50000]},fc:{s:[1200,3000],m:[3500,8000],l:[8000,20000],x:[18000,45000]},ai:{s:[600,1500],m:[1500,4000],l:[4000,10000],x:[8000,20000]},id:{s:[3000,7000],m:[8000,18000],l:[18000,45000],x:[40000,100000]},sh:{s:[2000,5000],m:[5000,12000],l:[12000,28000],x:[25000,60000]},fp:{s:[4000,9000],m:[10000,25000],l:[25000,60000],x:[50000,150000]},dr:{s:[250,600],m:[600,1500],l:[1500,4000],x:[3000,8000]}};
+function calcEst(){const t=document.getElementById('eType').value,s=document.getElementById('eSize').value,loc=document.getElementById('eLoc').value,res=document.getElementById('estResult'),rng=document.getElementById('estRange');if(!t||!s){res.classList.remove('on');return;}let[lo,hi]=ER[t]?.[s]||[0,0];if(loc==='travel'){lo=Math.round(lo*1.15);hi=Math.round(hi*1.2);}rng.textContent='$'+lo.toLocaleString()+' – $'+hi.toLocaleString();res.classList.add('on');}
+function sendEst(){const n=document.getElementById('eName').value,e=document.getElementById('eEmail').value,t=document.getElementById('eType').value,s=document.getElementById('eSize').value,d=document.getElementById('eDesc').value;if(!n||!e||!t||!s){alert('Please fill in all required fields.');return;}const r=document.getElementById('estRange').textContent,sub=encodeURIComponent('Estimate Request — Studio Bjør'),body=encodeURIComponent('Name: '+n+'\nEmail: '+e+'\nProject: '+t+'\nScale: '+s+'\nRange: '+r+'\n\n'+d);window.location.href='mailto:hello@studiobjor.com?subject='+sub+'&body='+body;}
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'],TIMES=['9:00 AM','10:00 AM','11:00 AM','1:00 PM','2:00 PM','3:00 PM','4:00 PM'],AVAIL=[1,2,3,4];
+let calD=new Date();calD.setDate(1);let selDate=null,selTime=null;
+function renderCal(){const y=calD.getFullYear(),m=calD.getMonth(),today=new Date();today.setHours(0,0,0,0);document.getElementById('calMonth').textContent=MONTHS[m]+' '+y;const first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate(),con=document.getElementById('calDays');con.innerHTML='';for(let i=0;i<first;i++){const e=document.createElement('div');e.className='cd empty';con.appendChild(e);}for(let d=1;d<=days;d++){const dt=new Date(y,m,d);dt.setHours(0,0,0,0);const isPast=dt<today,isAvail=AVAIL.includes(dt.getDay())&&!isPast,isToday=dt.getTime()===today.getTime(),isSel=selDate&&dt.getTime()===selDate.getTime(),el=document.createElement('div');el.className='cd'+(isPast?' past':'')+(isAvail?' avail':'')+(isToday?' today':'')+(isSel?' sel':'');el.textContent=d;if(isAvail)el.addEventListener('click',()=>selDay(dt));con.appendChild(el);}}
+function selDay(dt){selDate=dt;selTime=null;renderCal();renderSlots();document.getElementById('bookFormEl').classList.remove('on');}
+function renderSlots(){const w=document.getElementById('timeWrap');w.classList.add('on');const g=document.getElementById('slotsEl');g.innerHTML='';TIMES.forEach(t=>{const b=document.createElement('button');b.className='slot'+(t===selTime?' sel':'');b.textContent=t;b.addEventListener('click',()=>selSlot(t));g.appendChild(b);});}
+function selSlot(t){selTime=t;document.querySelectorAll('.slot').forEach(b=>b.classList.toggle('sel',b.textContent===t));document.getElementById('bookFormEl').classList.add('on');document.getElementById('bookFormEl').scrollIntoView({behavior:'smooth',block:'nearest'});}
+function chMonth(d){const now=new Date();now.setDate(1);now.setHours(0,0,0,0);calD.setMonth(calD.getMonth()+d);if(calD<now)calD=new Date(now);selDate=null;selTime=null;document.getElementById('timeWrap').classList.remove('on');document.getElementById('bookFormEl').classList.remove('on');renderCal();}
+function selBT(el){document.querySelectorAll('.bt').forEach(b=>b.classList.remove('active'));el.classList.add('active');}
+function confirmBook(){const f=document.getElementById('bFirst').value,l=document.getElementById('bLast').value,e=document.getElementById('bEmail').value,p=document.getElementById('bPhone').value,d=document.getElementById('bDesc').value,type=document.querySelector('.bt.active .bt-title')?.textContent||'';if(!f||!l||!e){alert('Please fill in your name and email.');return;}const ds=selDate?selDate.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'}):'—',sub=encodeURIComponent('Consultation Request — '+f+' '+l),body=encodeURIComponent('Consultation Request\n\nName: '+f+' '+l+'\nEmail: '+e+'\nPhone: '+p+'\nType: '+type+'\nDate: '+ds+'\nTime: '+(selTime||'—')+'\n\nProject:\n'+d);window.location.href='mailto:hello@studiobjor.com?subject='+sub+'&body='+body;document.getElementById('bookFormEl').classList.remove('on');document.getElementById('bookConfirm').classList.add('on');}
+function sbContact(e){e.preventDefault();alert('Message received. Benjamin will be in touch within 24 hours.');e.target.reset();return false;}
+renderCal();
+</script>
+</body>
+</html>
