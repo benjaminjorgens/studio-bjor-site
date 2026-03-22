@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio Bjør — Lighting Design, Custom Furniture & Art Installation · Miami</title>
-  <meta name="description" content="Studio Bjør is a Miami-based design and build studio specializing in bespoke lighting, custom furniture, and high-end art installation. 626 five-star reviews. 12 years." />
+  <title>Bjør — Lighting Design, Custom Furniture & Art Installation · Miami</title>
+  <meta name="description" content="Bjør — Miami-based design and build specializing in bespoke lighting, custom furniture, and high-end art installation. 626 five-star reviews. 12 years." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -12,25 +12,26 @@
     /* ─── RESET ─────────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black:     #070605;
-      --char:      #0e0c0a;
-      --dark:      #161310;
-      --mid:       #242018;
-      --border:    #2c2820;
-      --border-lt: #3a3228;
+      --black:     #F5F0E6;
+      --char:      #EDE6D8;
+      --dark:      #E4DBCA;
+      --mid:       #D8CDBA;
+      --border:    #C4B89E;
+      --border-lt: #D4C9B2;
       --amber:     #c8893a;
       --amber-lt:  #dfa05a;
-      --amber-dim: #7a5020;
-      --cream:     #f0ece2;
-      --cream-dim: #9e9484;
-      --white:     #faf8f2;
+      --amber-dim: #8B5E20;
+      --cream:     #1E1610;
+      --cream-dim: #7A6252;
+      --white:     #0A0806;
+      --sage:      #6B8A5A;
       --serif:     'Cormorant Garamond', Georgia, serif;
       --sans:      'Inter', system-ui, sans-serif;
       --ease:      cubic-bezier(0.22, 1, 0.36, 1);
     }
     html { scroll-behavior: smooth; }
     body { background: var(--black); color: var(--cream); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
-    ::selection { background: var(--amber-dim); color: var(--cream); }
+    ::selection { background: var(--amber); color: #fff; }
     img { display: block; width: 100%; height: 100%; object-fit: cover; }
     a { color: inherit; text-decoration: none; }
     button { cursor: pointer; font-family: var(--sans); }
@@ -60,19 +61,19 @@
       transition: padding .35s ease, background .35s ease, border-color .35s ease;
       border-bottom: 1px solid transparent;
     }
-    nav.scrolled { background: rgba(7,6,5,.95); backdrop-filter: blur(14px); padding: 1rem 2.5rem; border-bottom-color: var(--border); }
-    .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; letter-spacing: .14em; color: var(--cream); }
-    .nav-logo span { color: var(--amber); }
+    nav.scrolled { background: rgba(245,240,230,.96); backdrop-filter: blur(14px); padding: 1rem 2.5rem; border-bottom-color: var(--border); }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 38px; width: auto; object-fit: contain; }
     .nav-links { display: flex; gap: 2.2rem; list-style: none; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; }
     .nav-links a { color: var(--cream-dim); transition: color .2s; }
     .nav-links a:hover { color: var(--cream); }
     .nav-cta { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; border: 1px solid var(--amber); color: var(--amber); padding: .5rem 1.3rem; transition: background .2s, color .2s; }
-    .nav-cta:hover { background: var(--amber); color: var(--black); }
+    .nav-cta:hover { background: var(--amber); color: #fff; }
     .nav-tog { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .nav-tog span { display: block; width: 22px; height: 1px; background: var(--cream); }
 
     /* ─── MOBILE MENU ────────────────────────────────────────────────── */
-    .mob-menu { display: none; position: fixed; inset: 0; z-index: 90; background: rgba(7,6,5,.98); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mob-menu { display: none; position: fixed; inset: 0; z-index: 90; background: rgba(245,240,230,.98); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
     .mob-menu.open { display: flex; }
     .mob-menu a { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--cream); transition: color .2s; }
     .mob-menu a:hover { color: var(--amber); }
@@ -85,8 +86,8 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background: linear-gradient(160deg, rgba(17,14,10,.85) 0%, rgba(7,6,5,0) 60%),
-                  linear-gradient(to top, rgba(7,6,5,1) 0%, rgba(7,6,5,.35) 40%, transparent 70%);
+      background: linear-gradient(160deg, rgba(15,10,6,.55) 0%, rgba(7,6,5,0) 55%),
+                  linear-gradient(to top, rgba(10,8,6,.82) 0%, rgba(10,8,6,.25) 38%, transparent 68%);
       z-index: 1;
     }
     .hero-img {
@@ -121,12 +122,12 @@
     }
     .btn-a { display: inline-flex; align-items: center; gap: .5rem; background: var(--amber); color: var(--black); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 1rem 2.2rem; border: none; transition: background .2s, transform .2s; }
     .btn-a:hover { background: var(--amber-lt); transform: translateY(-1px); }
-    .btn-b { display: inline-flex; align-items: center; gap: .5rem; border: 1px solid rgba(240,236,226,.22); color: var(--cream); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; padding: 1rem 2.2rem; transition: border-color .2s; }
-    .btn-b:hover { border-color: var(--cream); }
+    .btn-b { display: inline-flex; align-items: center; gap: .5rem; border: 1px solid rgba(250,248,242,.35); color: #faf8f2; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; padding: 1rem 2.2rem; transition: border-color .2s; }
+    .btn-b:hover { border-color: #faf8f2; }
 
     .hero-stats {
-      display: flex; border-top: 1px solid var(--border);
-      background: rgba(7,6,5,.8); backdrop-filter: blur(10px);
+      display: flex; border-top: 1px solid rgba(255,255,255,.15);
+      background: rgba(10,8,6,.65); backdrop-filter: blur(10px);
       opacity: 0; animation: fadeIn 1s ease 1.2s forwards;
     }
     .hs { flex: 1; padding: 1.4rem 2rem; text-align: center; border-right: 1px solid var(--border); }
@@ -150,29 +151,39 @@
     .intro-pull::before { content: ''; position: absolute; left: 0; top: .3em; width: 3px; height: calc(100% - .6em); background: var(--amber); }
 
     .intro-vals { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.8rem; }
-    .iv { border: 1px solid var(--border); padding: 1.2rem; background: rgba(255,255,255,.02); }
+    .iv { border: 1px solid var(--border); padding: 1.2rem; background: rgba(255,255,255,.45); }
     .iv-l { font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: var(--amber); margin-bottom: .4rem; }
     .iv-t { font-size: .8rem; color: var(--cream-dim); line-height: 1.6; }
 
-    /* ─── PORTFOLIO STRIP ────────────────────────────────────────────── */
-    #portfolio-strip { background: var(--black); overflow: hidden; }
-    .portfolio-marquee {
-      display: flex; gap: 0;
-      animation: marquee 40s linear infinite;
-      width: max-content;
+    /* ─── PORTFOLIO COLLAGE ──────────────────────────────────────────── */
+    #portfolio-strip { background: var(--char); padding: 1rem 0; }
+    .portfolio-collage {
+      columns: 6 140px;
+      gap: 5px;
+      padding: 0 5px;
     }
-    .portfolio-marquee:hover { animation-play-state: paused; }
-    .pm-img { width: 360px; height: 260px; flex-shrink: 0; overflow: hidden; position: relative; }
-    .pm-img img { transition: transform .6s var(--ease); width: 100%; height: 100%; object-fit: cover; }
-    .pm-img:hover img { transform: scale(1.04); }
-    .pm-label {
+    .collage-item {
+      break-inside: avoid;
+      margin-bottom: 5px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .collage-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform .6s var(--ease), filter .3s;
+    }
+    .collage-item:hover img { transform: scale(1.03); filter: brightness(.92); }
+    .collage-label {
       position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(7,6,5,.85) 0%, transparent 100%);
-      padding: .8rem 1rem;
-      font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--cream-dim);
+      background: linear-gradient(to top, rgba(10,8,6,.72) 0%, transparent 100%);
+      padding: .6rem .8rem;
+      font-size: .55rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(250,248,242,.85);
       opacity: 0; transition: opacity .3s;
     }
-    .pm-img:hover .pm-label { opacity: 1; }
+    .collage-item:hover .collage-label { opacity: 1; }
 
     /* ─── SERVICES ───────────────────────────────────────────────────── */
     #services { background: var(--char); padding: 8rem 0; }
@@ -216,7 +227,7 @@
     .wg-item.wide { grid-column: span 2; }
     .wg-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(7,6,5,.8) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(10,8,6,.78) 0%, transparent 50%);
       opacity: 0; transition: opacity .4s;
       display: flex; align-items: flex-end; padding: 1.5rem;
     }
@@ -248,7 +259,7 @@
     .process-row::before { content: ''; position: absolute; top: 27px; left: 12.5%; right: 12.5%; height: 1px; background: var(--border); z-index: 0; }
     .ps { padding: 0 1.5rem; text-align: center; z-index: 1; }
     .ps-num { width: 54px; height: 54px; border: 1px solid var(--amber); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-family: var(--serif); font-size: 1.15rem; color: var(--amber); background: var(--dark); transition: background .3s, color .3s; }
-    .ps:hover .ps-num { background: var(--amber); color: var(--black); }
+    .ps:hover .ps-num { background: var(--amber); color: #fff; }
     .ps h4 { font-family: var(--serif); font-size: 1.15rem; color: var(--white); margin-bottom: .7rem; }
     .ps p { font-size: .79rem; color: var(--cream-dim); line-height: 1.75; }
 
@@ -259,12 +270,12 @@
     .t-meta { display: flex; align-items: center; gap: .5rem; justify-content: center; margin-top: 1rem; font-size: .73rem; color: var(--cream-dim); }
     .stars { color: var(--amber); }
 
-    .t-featured { border: 1px solid var(--amber-dim); background: rgba(200,137,58,.06); padding: 2.5rem 3rem; margin: 0 0 3rem; }
+    .t-featured { border: 1px solid var(--amber-dim); background: rgba(200,137,58,.09); padding: 2.5rem 3rem; margin: 0 0 3rem; }
     .t-featured-q { font-family: var(--serif); font-size: 1.3rem; font-style: italic; color: var(--cream); line-height: 1.6; }
     .t-featured-attr { margin-top: 1.2rem; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); }
 
     .t-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .t-card { border: 1px solid var(--border); padding: 2rem; transition: border-color .3s; background: rgba(255,255,255,.015); }
+    .t-card { border: 1px solid var(--border); padding: 2rem; transition: border-color .3s; background: rgba(255,255,255,.5); }
     .t-card:hover { border-color: var(--amber-dim); }
     .t-q { font-family: var(--serif); font-size: 2.8rem; color: var(--amber-dim); line-height: 1; margin-bottom: .3rem; }
     .t-s { color: var(--amber); font-size: .72rem; margin-bottom: .8rem; }
@@ -436,7 +447,7 @@
 <body>
 
 <nav id="nav">
-  <a href="#hero" class="nav-logo">Studio Bj<span>ø</span>r</a>
+  <a href="#hero" class="nav-logo"><img src="images/logo.png" alt="Bjør" /></a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#work">Work</a></li>
@@ -462,7 +473,7 @@
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-text">
-      <p class="hero-tag">Studio Bjør &nbsp;·&nbsp; Miami &nbsp;·&nbsp; Est. 2012</p>
+      <p class="hero-tag">Bjør &nbsp;·&nbsp; Miami &nbsp;·&nbsp; Est. 2012</p>
       <h1 class="hero-h1">Spaces that<br>hold <em>light.</em></h1>
       <p class="hero-sub">Most studios send a team. We send the person who designed it. Lighting, custom furniture, and high-end installation — built from the ground up.</p>
       <div class="hero-btns">
@@ -483,12 +494,12 @@
   <div class="wrap">
     <div class="intro-grid">
       <div class="rv">
-        <p class="eyebrow">The Studio</p>
+        <p class="eyebrow">The Practice</p>
         <h2>Quality is not a feature.<br>It's the foundation.</h2>
         <div class="divider"></div>
-        <p>Studio Bjør was built on a single refusal: <strong>the refusal to do anything disposable.</strong> Every project — from a single custom pendant to a full commercial lighting scheme — is approached with the same obsessive attention to materials, craft, and longevity.</p>
+        <p>Bjør was built on a single refusal: <strong>the refusal to do anything disposable.</strong> Every project — from a single custom pendant to a full commercial lighting scheme — is approached with the same obsessive attention to materials, craft, and longevity.</p>
         <p>For over a decade, I've watched people spend hundreds of dollars assembling furniture that won't survive one move. I've seen interiors lit with fixtures that flatten the rooms they're supposed to bring to life. That's not design — it's decoration. And it's not what I do.</p>
-        <p>I work in solid wood, hand-finished metal, and real glass. <strong>When you work with Studio Bjør, you're bringing in a single point of contact</strong> with twelve years of expertise across every dimension of the built environment.</p>
+        <p>I work in solid wood, hand-finished metal, and real glass. <strong>When you work with me, you're bringing in a single point of contact</strong> with twelve years of expertise across every dimension of the built environment.</p>
         <div class="intro-vals">
           <div class="iv"><div class="iv-l">Materials</div><div class="iv-t">Solid hardwood, charred Yakisugi, natural stone, hand-finished metal. Nothing disposable, ever.</div></div>
           <div class="iv"><div class="iv-l">Approach</div><div class="iv-t">Consultant first. The best work begins long before the first tool is lifted.</div></div>
@@ -504,19 +515,23 @@
 </section>
 
 <div id="portfolio-strip">
-  <div class="portfolio-marquee">
-    <div class="pm-img"><img src="images/arch-lamp-hero.jpg" alt="Custom lighting" /><div class="pm-label">Custom Lighting</div></div>
-    <div class="pm-img"><img src="images/shelf-plants.jpg" alt="Lit shelving" /><div class="pm-label">Custom Shelving</div></div>
-    <div class="pm-img"><img src="images/commercial-dining.jpg" alt="Commercial dining" /><div class="pm-label">Commercial Lighting</div></div>
-    <div class="pm-img"><img src="images/woodgrain-glow.jpg" alt="Yakisugi detail" /><div class="pm-label">Yakisugi Detail</div></div>
-    <div class="pm-img"><img src="images/led-installation.jpg" alt="LED installation" /><div class="pm-label">LED Installation</div></div>
-    <div class="pm-img"><img src="images/fabrication-1.jpg" alt="Fabrication" /><div class="pm-label">Lighting Fabrication</div></div>
-    <div class="pm-img"><img src="images/arch-lamp-hero.jpg" alt="Custom lighting" /><div class="pm-label">Custom Lighting</div></div>
-    <div class="pm-img"><img src="images/shelf-plants.jpg" alt="Lit shelving" /><div class="pm-label">Custom Shelving</div></div>
-    <div class="pm-img"><img src="images/commercial-dining.jpg" alt="Commercial dining" /><div class="pm-label">Commercial Lighting</div></div>
-    <div class="pm-img"><img src="images/woodgrain-glow.jpg" alt="Yakisugi detail" /><div class="pm-label">Yakisugi Detail</div></div>
-    <div class="pm-img"><img src="images/led-installation.jpg" alt="LED installation" /><div class="pm-label">LED Installation</div></div>
-    <div class="pm-img"><img src="images/fabrication-1.jpg" alt="Fabrication" /><div class="pm-label">Lighting Fabrication</div></div>
+  <div class="portfolio-collage">
+    <div class="collage-item"><img src="images/arch-lamp-hero.jpg" alt="Custom Lighting" /><div class="collage-label">Custom Lighting</div></div>
+    <div class="collage-item"><img src="images/portrait-workshop.jpeg" alt="Workshop" /><div class="collage-label">Workshop</div></div>
+    <div class="collage-item"><img src="images/shelf-plants.jpg" alt="Lit Shelving" /><div class="collage-label">Lit Shelving</div></div>
+    <div class="collage-item"><img src="images/art-install-1.jpg" alt="Art Installation" /><div class="collage-label">Art Installation</div></div>
+    <div class="collage-item"><img src="images/woodgrain-glow.jpg" alt="Yakisugi Detail" /><div class="collage-label">Yakisugi Detail</div></div>
+    <div class="collage-item"><img src="images/residential-lighting-1.jpg" alt="Residential Lighting" /><div class="collage-label">Residential Lighting</div></div>
+    <div class="collage-item"><img src="images/shelf-lifestyle.jpg" alt="Custom Shelving" /><div class="collage-label">Custom Shelving</div></div>
+    <div class="collage-item"><img src="images/grinder-closeup.jpeg" alt="Fabrication Detail" /><div class="collage-label">Fabrication</div></div>
+    <div class="collage-item"><img src="images/art-install-2.jpg" alt="Art Installation" /><div class="collage-label">Art Installation</div></div>
+    <div class="collage-item"><img src="images/commercial-bar.jpg" alt="Commercial Lighting" /><div class="collage-label">Commercial Bar</div></div>
+    <div class="collage-item"><img src="images/shou-sugi-burning.jpeg" alt="Shou Sugi Ban" /><div class="collage-label">Shou Sugi Ban</div></div>
+    <div class="collage-item"><img src="images/fabrication-1.jpg" alt="Lighting Fabrication" /><div class="collage-label">Fabrication</div></div>
+    <div class="collage-item"><img src="images/resin-tray.jpg" alt="Resin Work" /><div class="collage-label">Resin Work</div></div>
+    <div class="collage-item"><img src="images/dj-booth-waves.jpg" alt="Custom Build" /><div class="collage-label">Custom Build</div></div>
+    <div class="collage-item"><img src="images/shelf-detail.jpg" alt="Shelf Detail" /><div class="collage-label">Shelf Detail</div></div>
+    <div class="collage-item"><img src="images/workshop-bench.jpeg" alt="Workshop Bench" /><div class="collage-label">Workshop</div></div>
   </div>
 </div>
 
@@ -550,24 +565,6 @@
   </div>
 </div>
 
-<section id="work">
-  <div class="wrap">
-    <div class="sec-hdr rv">
-      <p class="eyebrow">Selected Work</p>
-      <h2>Built, lit, and finished</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="work-grid">
-      <div class="wg-item tall rv d1"><img src="images/arch-lamp-smoke.jpg" alt="Arch lamp" /><div class="wg-overlay"><span class="wg-label">Custom Arch Lamp — Yakisugi</span></div></div>
-      <div class="wg-item rv d2"><img src="images/arch-lamp-hero.jpg" alt="Arch lamp detail" /><div class="wg-overlay"><span class="wg-label">Lighting Fabrication</span></div></div>
-      <div class="wg-item rv d3"><img src="images/shelf-plants.jpg" alt="Lit shelving" /><div class="wg-overlay"><span class="wg-label">Custom Shelving — Integrated LED</span></div></div>
-      <div class="wg-item wide rv d2"><img src="images/commercial-dining.jpg" alt="Commercial dining" /><div class="wg-overlay"><span class="wg-label">Commercial Dining — Lighting Design</span></div></div>
-      <div class="wg-item rv d1"><img src="images/led-installation.jpg" alt="LED installation" /><div class="wg-overlay"><span class="wg-label">LED Installation</span></div></div>
-      <div class="wg-item rv d2"><img src="images/woodgrain-glow.jpg" alt="Woodgrain detail" /><div class="wg-overlay"><span class="wg-label">Yakisugi Detail</span></div></div>
-      <div class="wg-item rv d3"><img src="images/shelf-detail.jpg" alt="Shelf detail" /><div class="wg-overlay"><span class="wg-label">Shelving Detail</span></div></div>
-    </div>
-  </div>
-</section>
 
 <section id="about">
   <div class="wrap">
@@ -575,7 +572,7 @@
       <div class="rv-l">
         <div class="about-portrait">
           <div class="about-corner tl"></div>
-          <div class="about-frame"><img src="images/portrait-hero.png" alt="Benjamin Jorgens — Studio Bjør" /></div>
+          <div class="about-frame"><img src="images/portrait-hero.png" alt="Benjamin Jorgens — Bjør" /></div>
           <div class="about-corner br"></div>
         </div>
       </div>
@@ -586,7 +583,7 @@
         <p class="lead">"I grew up building things. I've never stopped. The only thing that's changed is what I build — and how well I build it."</p>
         <p>My path here wasn't conventional. I grew up in Spokane, moved to San Francisco at 23 to work at Apple as a visual merchandiser — learning how the world's most design-obsessed company thought about space, light, and the difference between good and extraordinary.</p>
         <p>I left corporate life to join a hardware startup, then went independent when I realized the only projects worth doing were the ones where I had <strong>complete ownership of the outcome.</strong> That was twelve years ago.</p>
-        <p>Since then I've built a practice that covers more ground than any single discipline usually allows: lighting design, furniture fabrication, electrical systems, art placement, interior consulting. Studio Bjør is small by design. <strong>Every project gets my full attention,</strong> from the first consultation to the final adjustment.</p>
+        <p>Since then I've built a practice that covers more ground than any single discipline usually allows: lighting design, furniture fabrication, electrical systems, art placement, interior consulting. This practice is small by design. <strong>Every project gets my full attention,</strong> from the first consultation to the final adjustment.</p>
         <div class="about-facts">
           <div><div class="af-l">Started</div><div class="af-v">Apple, San Francisco</div></div>
           <div><div class="af-l">Independent Since</div><div class="af-v">2012</div></div>
@@ -653,7 +650,7 @@
         <h2>Get a rough sense<br>of what your project<br>will cost</h2>
         <div class="divider"></div>
         <p>Every project is unique and final pricing requires a site visit and full scope conversation. This calculator gives you a realistic ballpark based on what I typically see for projects like yours.</p>
-        <div class="est-note"><strong>Studio Bjør takes on medium-to-large scope projects.</strong> For smaller jobs, I'm happy to point you toward the right resource. For anything complex, interesting, or worth doing right — let's talk.</div>
+        <div class="est-note"><strong>I take on medium-to-large scope projects.</strong> For smaller jobs, I'm happy to point you toward the right resource. For anything complex, interesting, or worth doing right — let's talk.</div>
       </div>
       <div class="rv-r">
         <form class="est-form" onsubmit="return false">
@@ -782,12 +779,12 @@
 <footer>
   <div class="wrap">
     <div class="footer-row">
-      <div class="f-logo">Studio Bj<span>ø</span>r</div>
+      <div class="f-logo"><img src="images/logo.png" alt="Bjør" style="height:52px;width:auto;object-fit:contain;" /></div>
       <ul class="f-links">
         <li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#about">About</a></li>
         <li><a href="#testimonials">Reviews</a></li><li><a href="#booking">Book</a></li><li><a href="mailto:hello@studiobjor.com">Contact</a></li>
       </ul>
-      <p class="f-copy">© 2026 Studio Bjør &nbsp;·&nbsp; Miami, FL</p>
+      <p class="f-copy">© 2026 Bjør &nbsp;·&nbsp; Miami, FL</p>
     </div>
   </div>
 </footer>
