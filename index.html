@@ -424,6 +424,9 @@
       nav.scrolled { padding: .9rem 1.5rem; }
       .nav-links, .nav-cta { display: none; }
       .nav-tog { display: flex; }
+      .nav-logo img { height: 42px; }
+      #hero-pin { height: auto; }
+      #hero { position: relative; height: auto; min-height: 100vh; }
       .intro-grid, .about-grid, .est-grid, .book-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .svc-grid, .t-grid { grid-template-columns: 1fr; }
       .work-grid { grid-template-columns: 1fr 1fr; }
@@ -796,7 +799,7 @@ window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',scrollY>60);
   const v=document.getElementById('heroVideo');
   const pin=document.getElementById('hero-pin');
-  if(v&&v.duration&&pin){
+  if(v&&v.duration&&pin&&window.innerWidth>768){
     const scrollable=pin.offsetHeight-window.innerHeight;
     const progress=Math.max(0,Math.min(1,scrollY/scrollable));
     v.currentTime=progress*v.duration;
